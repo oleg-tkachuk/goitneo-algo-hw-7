@@ -49,24 +49,40 @@ class BST:
             current = current.left
         return current.val
 
+    # Homework 7, task 3
+    def sum_of_values(self):
+        return self._sum_of_values(self.root)
+
+    # Homework 7, task 3
+    def _sum_of_values(self, node):
+        if node is None:
+            return 0
+        return node.val + self._sum_of_values(node.left) + self._sum_of_values(node.right)
+
+
 # Demonstration of use
 def main():
     random_from = 1
     random_to = 150
+    number_of_values = 30
+
     print(f"Homework 7 - Task 1 | Create a binary search tree (BST)")
     bst = BST()
 
-    print(f"Homework 7 - Task 1 | Generate 30 random values in the range from {random_from} to {random_to} and add them to the BST...")
-    for _ in range(0, 30):
+    print(f"Homework 7 - Task 1 | Generate {number_of_values} random values in the range from {random_from} to {random_to} and add them to the BST...")
+    for _ in range(number_of_values):
         item = random.randint(1, 100)
         bst.insert(item)
         print(f"Homework 7 - Task 1 | Add value {item} to the BST")
 
     max_value = bst.find_max()
-    print(f"Homework 7 - Task 1 | The maximum value in the binary search tree is: {max_value}")
+    print(f"Homework 7 - Task 1 | The maximum value in the BST is: {max_value}")
 
     max_value = bst.find_min()
-    print(f"Homework 7 - Task 2 | The minimum value in the binary search tree is: {max_value}")
+    print(f"Homework 7 - Task 2 | The minimum value in the BST is: {max_value}")
+
+    total_sum = bst.sum_of_values()
+    print(f"Homework 7 - Task 3 | The sum of all values in the BST is: {total_sum}")
 
 if __name__ == "__main__":
     main()
