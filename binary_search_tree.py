@@ -1,10 +1,14 @@
 import random
+
+
+# Node in a binary search tree
 class Node:
     def __init__(self, key):
         self.left = None
         self.right = None
         self.val = key
 
+# Create a binary search tree (BST)
 class BST:
     def __init__(self):
         self.root = None
@@ -83,6 +87,7 @@ def main():
 
     total_sum = bst.sum_of_values()
     print(f"Homework 7 - Task 3 | The sum of all values in the BST is: {total_sum}")
+
 
 if __name__ == "__main__":
     main()
