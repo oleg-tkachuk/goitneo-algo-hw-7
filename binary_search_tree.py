@@ -27,13 +27,26 @@ class BST:
             else:
                 self._insert_recursively(node.right, key)
 
+    # Homework 7, task 1
     def find_max(self):
         return self._find_max_node(self.root)
 
+    # Homework 7, task 1
     def _find_max_node(self, node):
         current = node
         while current.right is not None:
             current = current.right
+        return current.val
+
+    # Homework 7, task 2
+    def find_min(self):
+        return self._find_min_node(self.root)
+
+    # Homework 7, task 2
+    def _find_min_node(self, node):
+        current = node
+        while current.left is not None:
+            current = current.left
         return current.val
 
 # Demonstration of use
@@ -51,6 +64,9 @@ def main():
 
     max_value = bst.find_max()
     print(f"Homework 7 - Task 1 | The maximum value in the binary search tree is: {max_value}")
+
+    max_value = bst.find_min()
+    print(f"Homework 7 - Task 2 | The minimum value in the binary search tree is: {max_value}")
 
 if __name__ == "__main__":
     main()
